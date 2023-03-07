@@ -11,7 +11,7 @@
             </div>
             <div>
                 <b>Duration: </b>
-                {{ getDuration(duration)}}
+                {{ getDuration(duration) }}
                 <span *ngIf="duration > 120; else elseSpan"> hours </span>
                 <ng-template #elseSpan>hour</ng-template>
             </div>

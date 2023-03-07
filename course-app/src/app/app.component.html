@@ -1,8 +1,7 @@
 <app-header>
-    <div style="display: flex; gap: 25px;">
+    <div class="header__info">
         <ng-container *ngIf="userName; else login">
-            <div style="font-style: 14px; font-weight: 600; display: flex;
-            align-items: center;">{{ userName }}</div>
+            <div class="header__info-user">{{ userName }}</div>
             <app-button buttonText="logout"></app-button>
         </ng-container>
         <ng-template #login>
@@ -11,6 +10,6 @@
     </div>
 </app-header>
 <app-courses></app-courses>
-<app-info>
+<app-info [title]="infoTitle" text="Please use ’Add New Course’ button to add your first course">
     <app-button buttonText="add new course"></app-button>
 </app-info>

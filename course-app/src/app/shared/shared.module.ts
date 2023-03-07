@@ -29,7 +29,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [components, CourseListComponent],
+  declarations: [components],
   imports: [
     CommonModule,
     FontAwesomeModule,

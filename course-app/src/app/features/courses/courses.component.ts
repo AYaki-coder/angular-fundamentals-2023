@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent {
-  shouldOpenModalWindow: boolean = false;
+  public shouldOpenModalWindow: boolean = false;
   isEditable: boolean = true;
   
   onModalResult(modalResult: boolean){
