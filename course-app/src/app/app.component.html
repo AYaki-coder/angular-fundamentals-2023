@@ -1,0 +1,15 @@
+<app-header>
+    <div class="header__info">
+        <ng-container *ngIf="userName; else login">
+            <div class="header__info-user">{{ userName }}</div>
+            <app-button buttonText="logout"></app-button>
+        </ng-container>
+        <ng-template #login>
+            <app-button buttonText="login"></app-button>
+        </ng-template>
+    </div>
+</app-header>
+<app-courses></app-courses>
+<app-info [title]="infoTitle" text="Please use ’Add New Course’ button to add your first course">
+    <app-button buttonText="add new course"></app-button>
+</app-info>

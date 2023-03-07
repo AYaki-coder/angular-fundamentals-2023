@@ -1,0 +1,35 @@
+.app-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 13px 36px;
+    gap: 10px;
+    background-color: #007298;
+    border-radius: 4px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    min-height: 50px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #016486;
+    }
+
+    &:active {
+        background-color: #009fd8;
+        box-shadow: inset 1px 1px 2px 2px #00000099;
+    }
+
+    &:focus {
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    &__single-icon {
+        padding: 13px 22px;
+        font-size: 18px;
+    }
+}

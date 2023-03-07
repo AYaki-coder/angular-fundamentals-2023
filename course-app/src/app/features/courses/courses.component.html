@@ -1,0 +1,2 @@
+<app-course-list [isEditable]='isEditable' (showRequest)="openModalWindow()"></app-course-list>
+<app-modal [isOpen]="shouldOpenModalWindow" (result)="onModalResult($event)" (closeRequest)="closeModalWindow()"></app-modal>

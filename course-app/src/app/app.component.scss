@@ -1,0 +1,11 @@
+.header__info {
+    display: flex;
+    gap: 25px;
+    
+    &-user {
+        font-style: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+}
