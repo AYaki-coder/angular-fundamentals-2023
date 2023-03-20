@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-registration',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
+  @Output() goToLoginRequest = new EventEmitter();
+
+  onLogin() {
+    this.goToLoginRequest.emit();
+  }
 
 }

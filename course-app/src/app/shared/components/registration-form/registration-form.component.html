@@ -1,34 +1,51 @@
 <h2 class="text-align-center">Registration</h2>
 <div class="app-plate">
-  <div class="registration-form">
-    <div>
-      <div class="form__control">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Input text"
-        />
-      </div>
-      <div class="form__control">
-        <label for="email">Email</label>
-        <input
-          type="text"
-          id="email"
-          placeholder="Input text"
-        />
-      </div>
-      <div class="form__control">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Input text"
-        />
-      </div>
-    </div>
-    <div class="form__action">
-      <app-button></app-button>
-    </div>
-  </div>
+    <form class="registration-form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <div>
+            <div class="form__control">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Input text" formControlName="name" />
+                <div
+                    *ngIf="form.get('name')?.invalid && (form.get('name')?.touched || form.get('name')?.dirty)"
+                    class="error-text"
+                >
+                    <div *ngIf="form.get('name')?.hasError('required')">Name is required.</div>
+                    <div *ngIf="form.get('name')?.hasError('minlength')">Name should have over 6 symbols.</div>
+                </div>
+            </div>
+            <div class="form__control">
+                <label for="email">Email</label>
+                <input
+                    type="text"
+                    id="email"
+                    placeholder="Input text"
+                    formControlName="email"
+                    appEmailValidator
+                />
+                <div
+                    *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)"
+                    class="error-text"
+                >
+                    <div *ngIf="form.get('email')?.hasError('required')">Email is required.</div>
+                    <div *ngIf="form.get('email')?.hasError('invalidEmail')">Email is invalid.</div>
+                </div>
+            </div>
+            <div class="form__control">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Input text" formControlName="password" />
+                <div
+                    *ngIf="form.get('password')?.invalid && (form.get('password')?.touched || form.get('password')?.dirty)"
+                    class="error-text"
+                >
+                    <div *ngIf="form.get('password')?.hasError('required')">Password is required.</div>
+                </div>
+            </div>
+        </div>
+        <div class="form__action">
+            <app-button buttonText="Login"></app-button>
+        </div>
+        <div class="form__text">
+            If you have an account you may <strong class="clickable-text" (click)="onLogin()">Login</strong>
+        </div>
+    </form>
 </div>

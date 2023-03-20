@@ -1,31 +1,57 @@
 <h2 class="text-align-center">Login</h2>
 <div class="app-plate">
-  <div class="login-form">
-    <div>
-      <div class="form__control">
-        <label for="email">Email</label>
-        <input
-          type="text"
-          id="email"
-          placeholder="Input text"
-        />
-      </div>
-      <div class="form__control">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Input text"
-        />
-      </div>
-    </div>
-    <div>
-      <div class="form__action">
-        <app-button></app-button>
-      </div>
-      <div class="form__text">
-        If you don't have an account you may <strong>Registration</strong>
-      </div>
-    </div>
-  </div>
+    <form #loginForm="ngForm" class="login-form" (ngSubmit)="onSubmit(loginForm.value)">
+        <div>
+            <div class="form__control">
+                <label for="email">Email</label>
+                <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Input text"
+                    required
+                    appEmailValidator
+                    ngModel
+                    #email="ngModel"
+                    [ngClass]="loginForm.submitted ? 'ng-touched' : null"
+                />
+                <div
+                    *ngIf="loginForm.submitted || (email.invalid && (email.dirty || email.touched))"
+                    class="error-text"
+                >
+                    <div *ngIf="email.errors?.['required']">Email is required.</div>
+                    <div *ngIf="email.errors?.['invalidEmail']">Email is invalid.</div>
+                </div>
+            </div>
+
+            <div class="form__control">
+                <label for="password">Password</label>
+                <input
+                    #password="ngModel"
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    placeholder="Input text"
+                    ngModel
+                    [ngClass]="loginForm.submitted ? 'ng-touched' : null"
+                />
+                <div
+                    *ngIf="loginForm.submitted || (password.invalid && (password.dirty || password.touched))"
+                    class="error-text"
+                >
+                    <div *ngIf="password.errors?.['required']">Password is required.</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="form__action">
+                <app-button buttonText="Login" type="submit"></app-button>
+            </div>
+            <div class="form__text">
+                If you don't have an account you may
+                <strong class="clickable-text" (click)="onRegistration()">Registration</strong>
+            </div>
+        </div>
+    </form>
 </div>

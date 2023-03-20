@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CoursesComponent {
   public shouldOpenModalWindow: boolean = false;
-  isEditable: boolean = true;
+  public isEditable: boolean = true;
   
   onModalResult(modalResult: boolean){
     console.log('modalResult', modalResult?.toString())

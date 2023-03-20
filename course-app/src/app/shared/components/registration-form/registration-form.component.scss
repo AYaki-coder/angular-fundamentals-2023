@@ -1,5 +1,10 @@
 @import 'src/app/shared/styles/styles';
 
+.app-plate {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
 .registration-form {
   width: 260px;
   margin-top: 36px;

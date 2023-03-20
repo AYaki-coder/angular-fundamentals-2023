@@ -14,6 +14,7 @@ import {
   CourseFormComponent
 } from "./components";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { EmailValidatorDirective } from './directives/email-validator.directive';
 
 const components = [
   HeaderComponent,
@@ -29,7 +30,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [components],
+  declarations: [components, EmailValidatorDirective],
   imports: [
     CommonModule,
     FontAwesomeModule,
