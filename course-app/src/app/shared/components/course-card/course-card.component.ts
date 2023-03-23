@@ -7,17 +7,17 @@ import { Course } from '../types';
     styleUrls: ['./course-card.component.scss'],
 })
 export class CourseCardComponent {
-    @Input() course!: Course;
-    @Input() isEditable!: boolean;
+    @Input() public course!: Course;
+    @Input() public isEditable!: boolean;
 
-    @Output() deleteRequest = new EventEmitter<string>();
-    @Output() editRequest = new EventEmitter();
+    @Output() public deleteRequest = new EventEmitter<string>();
+    @Output() public editRequest = new EventEmitter();
 
-    title!: string;
-    description!: string;
-    creationDate!: Date;
-    duration!: number;
-    authors!: string[];
+    public title!: string;
+    public description!: string;
+    public creationDate!: Date;
+    public duration!: number;
+    public authors!: string[];
 
     ngOnChanges() {
         this.title = this.course.title;
@@ -25,13 +25,5 @@ export class CourseCardComponent {
         this.creationDate = new Date(this.course.creationDate);
         this.duration = this.course.duration;
         this.authors = this.course.authors;
-    }
-
-    getDuration(minutes: number) {
-        let hours = Math.floor(minutes / 60).toString();
-        hours = hours.length === 1 ? 0 + hours : hours;
-        const min = minutes % 60;
-
-        return `${hours}:${min}`;
     }
 }

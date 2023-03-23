@@ -1,9 +1,33 @@
 @import 'src/app/shared/styles/styles.scss';
 
+.app-plate {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
 .login-form {
-  width: 260px;
-  margin-top: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 260px;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form {
+    &__password-icon {
+        position: absolute;
+        top: 36px;
+        right: 15px;
+        color: $color-gray;
+        cursor: pointer;
+
+        &:hover{
+            transition: all .1 ease-in-out;
+            color: #333e48;
+        }
+    }
+
+    &__control {
+        position: relative;
+    }
 }

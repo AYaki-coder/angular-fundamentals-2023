@@ -1,37 +1,51 @@
 @import 'src/app/shared/styles/styles';
 
 .course {
- min-width: 60vw;
+    min-width: 60vw;
 
-  &__flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
 
-    & input {
-      flex: 1;
+        & app-button {
+            margin-left: 16px;
+            flex: 0 0 185px;
+        }
+
+        & .course__duration {
+            margin-left: 16px;
+
+            &-input {
+                flex: 1;
+            }
+        }
     }
 
-    & app-button {
-      margin-left: 16px;
+    &__authors {
+        margin-top: 8px;
+        display: flex;
+
+        &-item {
+            margin-right: 10px;
+        }
     }
 
-    & .course__duration {
-      margin-left: 16px;
+    &__icon {
+        margin-left: 4px;
+        cursor: pointer;
     }
-  }
+}
 
-  &__authors {
-    margin-top: 8px;
-    display: flex;
-
-    &-item {
-      margin-right: 10px;
+.form {
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
     }
-  }
 
-  &__icon {
-    margin-left: 4px;
-    cursor: pointer;
-  }
+    &__btn {
+        &:not(:first-child) {
+            margin-left: 14px;
+        }
+    }
 }

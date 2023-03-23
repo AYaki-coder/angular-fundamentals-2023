@@ -13,6 +13,10 @@
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
     min-height: 50px;
+    outline: none;
+    margin: 0 auto;
+    border: transparent;
+    
     cursor: pointer;
 
     &:hover {

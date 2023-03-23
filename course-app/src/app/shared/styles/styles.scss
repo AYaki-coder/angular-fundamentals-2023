@@ -1,6 +1,7 @@
 $color-white: #fff;
 $color-gray: #CFCFCF;
 $color-red: #FF0000;
+$color-dark-blue:  #016486;
 
 .app-plate {
     width: 100%;
@@ -42,4 +43,13 @@ $color-red: #FF0000;
 .separator {
     width: 100%;
     border-bottom: 1px solid $color-gray;
+}
+
+.clickable-text {
+    cursor: pointer;
+
+    &:hover {
+        color: $color-dark-blue;
+        transition: all .2s;
+    }
 }

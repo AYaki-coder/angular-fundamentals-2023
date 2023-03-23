@@ -11,11 +11,11 @@
             </div>
             <div>
                 <b>Duration: </b>
-                {{ getDuration(duration) }}
+                {{ duration | duration }}
                 <span *ngIf="duration > 120; else elseSpan"> hours </span>
                 <ng-template #elseSpan>hour</ng-template>
             </div>
-            <div><b>Created: </b>{{ creationDate | date : 'dd.MM.YYYY' }}</div>
+            <div><b>Created: </b>{{ creationDate | creationDate }}</div>
         </div>
         <div class="course-card__info-actions">
             <ng-content></ng-content>

@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./info.component.scss'],
 })
 export class InfoComponent {
-    @Input() title!: string;
-    @Input() text?: string;
+    @Input() public title!: string;
+    @Input() public text?: string;
 }

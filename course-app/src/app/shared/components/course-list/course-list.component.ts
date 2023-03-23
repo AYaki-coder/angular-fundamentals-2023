@@ -8,25 +8,25 @@ import { mockedCourseList } from './../../../course-list-mock';
     styleUrls: ['./course-list.component.scss'],
 })
 export class CourseListComponent {
-    @Input() courses: Course[] = mockedCourseList;
-    @Input() isEditable!: boolean;
+    @Input() public courses: Course[] = mockedCourseList;
+    @Input() public isEditable!: boolean;
 
-    @Output() deleteRequest = new EventEmitter();
-    @Output() editRequest = new EventEmitter();
-    @Output() showRequest = new EventEmitter();
+    @Output() public deleteRequest = new EventEmitter();
+    @Output() public editRequest = new EventEmitter();
+    @Output() public showRequest = new EventEmitter();
 
-    onDelete() {
-      this.deleteRequest.emit();
-      console.log('delete click');
-    }
-    
-    onEdit() {
-      this.editRequest.emit();
-      console.log('edit click');
+    public onDelete() {
+        this.deleteRequest.emit();
+        console.log('delete click');
     }
 
-    showCourse() {
-      console.log('show course');
-      this.showRequest.emit();
+    public onEdit() {
+        this.editRequest.emit();
+        console.log('edit click');
+    }
+
+    public showCourse() {
+        console.log('show course');
+        this.showRequest.emit();
     }
 }
