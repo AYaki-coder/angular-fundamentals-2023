@@ -35,7 +35,13 @@
                     placeholder="Input text"
                     ngModel
                     [ngClass]="loginForm.submitted ? 'ng-touched' : null"
+                    appPasswordToggler
+                    #passwordToggler="passwordToggler"
                 />
+                <div class="form__password-icon" (click)="toggleIcon()" (click)="passwordToggler.toggle()">
+                    <fa-icon [icon]="iconName"></fa-icon>
+                </div>
+
                 <div
                     *ngIf="loginForm.submitted || (password.invalid && (password.dirty || password.touched))"
                     class="error-text"

@@ -8,30 +8,30 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-    @Input() title: string = 'Message';
-    @Input() message: string = 'Message text';
-    @Input() okButtonText: string = 'ok';
-    @Input() cancelButtonText: string = 'cancel';
-    @Input() isOpen!: boolean;
+    @Input() public title: string = 'Message';
+    @Input() public message: string = 'Message text';
+    @Input() public okButtonText: string = 'ok';
+    @Input() public cancelButtonText: string = 'cancel';
+    @Input() public isOpen!: boolean;
 
-    @Output() result = new EventEmitter<boolean>();
-    @Output() closeRequest = new EventEmitter();
+    @Output() public result = new EventEmitter<boolean>();
+    @Output() public closeRequest = new EventEmitter();
 
     constructor(library: FaIconLibrary) {
         library.addIconPacks(fas);
     }
 
-    onConfirm() {
+    public onConfirm() {
         this.result.emit(true);
         this.onClose();
     }
 
-    onCancel() {
+    public onCancel() {
         this.result.emit(false);
         this.onClose();
     }
 
-    onClose() {
+    public onClose() {
         this.closeRequest.emit();
         console.log('should be closed');
     }

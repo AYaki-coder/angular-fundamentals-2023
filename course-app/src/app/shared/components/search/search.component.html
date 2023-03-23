@@ -1,4 +1,4 @@
-<div class="app-search">
-  <input type="text" placeholder="Input text">
-  <app-button></app-button>
-</div>
+<form #searchForm="ngForm" class="app-search" (ngSubmit)="onSubmit(searchForm.value)">
+    <input type="text" [placeholder]="placeholder" name="search" ngModel />
+    <app-button type="submit" buttonText="search"></app-button>
+</form>

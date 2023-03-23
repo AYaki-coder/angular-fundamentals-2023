@@ -15,10 +15,4 @@ describe('AppComponent', () => {
         const app = fixture.componentInstance;
         expect(app).toBeTruthy();
     });
-
-    it(`should have as userName 'Harry Potter'`, () => {
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.componentInstance;
-        expect(app.userName).toEqual('Harry Potter');
-    });
 });

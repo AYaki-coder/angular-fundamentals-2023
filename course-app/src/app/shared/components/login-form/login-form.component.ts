@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-login-form',
@@ -6,17 +9,29 @@ import { Component, EventEmitter, Output } from '@angular/core';
     styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
-    email!: string;
-    password!: string;
+    public email!: string;
+    public password!: string;
+    public iconName: IconProp = 'eye';
 
-    @Output() registrationRequest = new EventEmitter();
+    @Output() public registrationRequest = new EventEmitter();
 
-    onRegistration() {
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas);
+    }
+
+    public onRegistration(): void {
         this.registrationRequest.emit();
     }
 
-    onSubmit(email: string) {
-        
-        console.log(email);
+    public onSubmit(loginForm: string): void {
+        console.log(loginForm);
+    }
+
+    public toggleIcon(): void {
+        if (this.iconName === 'eye') {
+            this.iconName = 'eye-slash';
+        } else {
+            this.iconName = 'eye';
+        }
     }
 }

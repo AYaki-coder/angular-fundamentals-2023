@@ -1,59 +1,77 @@
-<!-- Replace ::text:: with your code -->
 <h2>Create / Edit Course</h2>
-<form>
-  <div class="app-plate">
-    <div class="course">
-      <h3>Main Info</h3>
-      <div class="form__control">
-        <label for="title">Title</label>
-        <input
-          type="text"
-          id="title"
-          placeholder="Input text"
-        />
-      </div>
-      <div class="form__control">
-        <label for="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          placeholder="Input text"
-          rows="4"
-          cols="5"
-        ></textarea>
-      </div>
-      <div class="separator"></div>
-      <h3>Authors</h3>
-      <div class="form__control">
-        <div class="course__flex">
-          <input
-            type="text"
-            id="author"
-            placeholder="Input Author Name"
-          />
-          <app-button></app-button>
+<form [formGroup]="form">
+    <div class="app-plate">
+        <div class="course">
+            <h3>Main Info</h3>
+            <div class="form__control">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="Input text" formControlName="title" />
+                <div class="error-text" *ngIf="title?.hasError('required') && (title?.touched || title?.dirty)">
+                    Title is required.
+                </div>
+            </div>
+            <div class="form__control">
+                <label for="description">Description</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Input text"
+                    rows="4"
+                    cols="5"
+                    formControlName="description"
+                ></textarea>
+                <div
+                    class="error-text"
+                    *ngIf="description?.hasError('required') && (description?.touched || description?.dirty)"
+                >
+                    Description is required.
+                </div>
+            </div>
+            <div class="separator"></div>
+            <h3>Authors</h3>
+            <div class="form__control" formGroupName="newAuthor">
+                <div class="course__flex">
+                    <input type="text" id="author" placeholder="Input Author Name" formControlName="author" />
+                    <app-button type="text" buttonText="create button" (click)="addAuthor()"></app-button>
+                </div>
+                <div class="error-text" *ngIf="author?.hasError('pattern') && (author?.touched || author?.dirty)">
+                    New author should contain only latin letters and numbers.
+                </div>
+            </div>
+
+            <h3>Authors list</h3>
+            <div class="course__flex" formArrayName="authors" *ngFor="let author of authors.controls; let i = index">
+                <input [formControlName]="i" />
+            </div>
+
+            <div class="separator"></div>
+            <h3>Duration</h3>
+            <div class="form__control">
+                <div class="course__flex">
+                    <div class="course__duration-input">
+                        <input type="number" id="duration" placeholder="Input duration" formControlName="duration" />
+                        <div class="error-text" *ngIf="duration?.invalid && (duration?.touched || duration?.dirty)">
+                            <div *ngIf="duration?.hasError('required')">Duration is required.</div>
+                            <div *ngIf="duration?.hasError('min')">Duration must be not less than 0.</div>
+                        </div>
+                    </div>
+                    <div
+                        *ngIf="duration?.valid && (duration?.touched || duration?.dirty); else template"
+                        class="course__duration"
+                    >
+                        {{ duration?.value | duration }}
+                    </div>
+                    <ng-template #template><div class="course__duration">00:00</div> </ng-template>
+                </div>
+            </div>
+            <div class="form__actions">
+                <div class="form__btn">
+                    <app-button buttonText="cancel"></app-button>
+                </div>
+                <div class="form__btn">
+                    <app-button buttonText="create course" (click)="onAdd()"></app-button>
+                </div>
+            </div>
         </div>
-        <div class="course__authors">
-          ::Authors::
-        </div>
-      </div>
-      <div class="separator"></div>
-      <h3>Duration</h3>
-      <div class="form__control">
-        <div class="course__flex">
-          <input
-            type="number"
-            id="duration"
-            placeholder="Input duration"
-          />
-          <div class="course__duration">
-            ::Duration::
-          </div>
-        </div>
-      </div>
-      <div class="form__action">
-        <app-button></app-button>
-      </div>
     </div>
-  </div>
 </form>

@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -6,7 +6,7 @@ import { Component, DoCheck } from '@angular/core';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    public userName: string = '';
+    public userName: string = 'Harry Potter';
     public infoTitle: string = 'Your List Is Empty';
 
     private isCurrentPage: CurrentPage = CurrentPage.Main;
@@ -16,12 +16,12 @@ export class AppComponent {
     public isMainPage: boolean = this.isCurrentPage === CurrentPage.Main;
 
 
-    onLogin(): void {
+    public onLogin(): void {
         this.isCurrentPage = CurrentPage.Login;
         this.changePage()
     }
 
-    openRegistrationPage(): void {
+    public openRegistrationPage(): void {
         this.isCurrentPage = CurrentPage.Registration;
         this.changePage()
     }

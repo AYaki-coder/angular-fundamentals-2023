@@ -12,7 +12,9 @@
     </div>
 </app-header>
 <ng-container *ngIf="isLoginPage"> <app-login (registrationRequest)="openRegistrationPage()"></app-login></ng-container>
-<ng-container *ngIf="isRegistrationPage"> <app-registration (goToLoginRequest)="onLogin()"></app-registration></ng-container>
+<ng-container *ngIf="isRegistrationPage">
+    <app-registration (goToLoginRequest)="onLogin()"></app-registration>
+</ng-container>
 
 <ng-container *ngIf="isMainPage">
     <app-courses></app-courses>
@@ -20,3 +22,5 @@
         <app-button buttonText="add new course"></app-button>
     </app-info>
 </ng-container>
+
+<app-course-form></app-course-form>
