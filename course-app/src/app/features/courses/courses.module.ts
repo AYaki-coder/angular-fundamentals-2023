@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CoursesComponent } from './courses.component';
 import { SharedModule } from '../../shared/shared.module';
+import { CoursesRoutingModule } from './courses-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { SharedModule } from '../../shared/shared.module';
     CoursesComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    CoursesRoutingModule
   ],
   exports:[
     CoursesComponent

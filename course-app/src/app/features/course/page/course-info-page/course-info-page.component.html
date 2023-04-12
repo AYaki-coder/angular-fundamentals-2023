@@ -1,0 +1,27 @@
+<h2>{{ title }}</h2>
+<div class="course-card">
+    <b>Description: </b>
+    <div class="course-card__flex">
+        <div class="course-card__description">
+            <div class="course-card__description-text">{{ description }}</div>
+        </div>
+        <div class="course-card__info">
+            <div class="course-card__info-text">
+                <b>ID: </b>
+                {{ id }}
+            </div>
+            <div class="course-card__info-text">
+                <b>Duration: </b>
+                {{ duration | duration }}
+                <span *ngIf="duration > 120; else elseSpan"> hours </span>
+                <ng-template #elseSpan>hour</ng-template>
+            </div>
+            <div class="course-card__info-text"><b>Created: </b>{{ creationDate | creationDate }}</div>
+            <div class="course-card__info-text">
+                <b>Authors: </b>
+                {{ authors }}
+            </div>
+        </div>
+    </div>
+</div>
+<app-button buttonText="back"></app-button>

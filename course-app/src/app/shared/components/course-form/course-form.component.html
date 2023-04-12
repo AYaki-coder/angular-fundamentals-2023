@@ -1,11 +1,10 @@
-<h2>Create / Edit Course</h2>
 <form [formGroup]="form">
     <div class="app-plate">
         <div class="course">
             <h3>Main Info</h3>
             <div class="form__control">
                 <label for="title">Title</label>
-                <input type="text" id="title" placeholder="Input text" formControlName="title" />
+                <input type="text" id="title" placeholder="Input text" formControlName="title"/>
                 <div class="error-text" *ngIf="title?.hasError('required') && (title?.touched || title?.dirty)">
                     Title is required.
                 </div>
@@ -41,7 +40,7 @@
 
             <h3>Authors list</h3>
             <div class="course__flex" formArrayName="authors" *ngFor="let author of authors.controls; let i = index">
-                <input [formControlName]="i" />
+                <input [formControlName]="i"/>
             </div>
 
             <div class="separator"></div>

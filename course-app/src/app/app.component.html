@@ -1,26 +1,27 @@
 <app-header>
     <div class="header__info">
-        <ng-container *ngIf="isMainPage">
+        <ng-container>
             <ng-container *ngIf="userName; else login">
                 <div class="header__info-user">{{ userName }}</div>
                 <app-button buttonText="logout"></app-button>
             </ng-container>
             <ng-template #login>
-                <app-button buttonText="login" (click)="onLogin()"></app-button>
+                <app-button routerLink="/login" buttonText="login"></app-button>
             </ng-template>
         </ng-container>
     </div>
 </app-header>
-<ng-container *ngIf="isLoginPage"> <app-login (registrationRequest)="openRegistrationPage()"></app-login></ng-container>
+<router-outlet></router-outlet>
+<!-- <ng-container *ngIf="isLoginPage"> <app-login (registrationRequest)="openRegistrationPage()"></app-login></ng-container>
 <ng-container *ngIf="isRegistrationPage">
     <app-registration (goToLoginRequest)="onLogin()"></app-registration>
-</ng-container>
+</ng-container> -->
 
-<ng-container *ngIf="isMainPage">
+<!-- <ng-container *ngIf="isMainPage">
     <app-courses></app-courses>
     <app-info [title]="infoTitle" text="Please use ’Add New Course’ button to add your first course">
         <app-button buttonText="add new course"></app-button>
     </app-info>
 </ng-container>
 
-<app-course-form></app-course-form>
+<app-course-form></app-course-form> -->

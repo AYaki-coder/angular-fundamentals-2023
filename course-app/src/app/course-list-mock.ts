@@ -1,4 +1,6 @@
-export const mockedCourseList = [
+import { Course } from './shared/components/types';
+
+export const mockedCourseList: Course[] = [
     {
         id: 'de5aaa59-90f5-4dbc-b8a9-aaf205c551ba',
         title: 'JavaScript',
